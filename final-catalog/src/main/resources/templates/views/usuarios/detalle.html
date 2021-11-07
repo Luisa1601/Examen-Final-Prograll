@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head th:replace="plantillas/template :: head">
+    <meta charset="UTF-8">
+    <title>Detalles</title>
+</head>
+<body>
+<header th:replace="/plantillas/template :: header"></header>
+
+<div class="container" style="max-width: 60%">
+
+    <div class="card bg-light mt-3">
+
+        <div class="card-header bg-info text-white text-center" th:text="'Usuario: ' + ${usuario.nombre} + ' ' + ${usuario.apellido}">
+        </div>
+
+        <div class="card-body">
+            <form  th:object="${usuario}" >
+                <div class="mb-3 row form-group">
+
+                    <div class="col-sm-6">
+                        <input type="hidden" disabled th:field="*{id}">
+                        <label for="nombre" class="col col-form-label"><strong>Nombres:</strong></label>
+                        <div class="col">
+                            <input type="text" disabled th:field="*{nombre}" class="form-control" id="nombre" placeholder="Fulano">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label for="apellido" class="col col-form-label"><strong>Apellidos:</strong></label>
+                        <div class="col">
+                            <input type="text" disabled th:field="*{apellido}" class="form-control" id="apellido" placeholder="Mengano">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mb-3 row form-group">
+                    <div class="col-sm-6">
+                        <label class="col col-form-label"><strong>Profesión:</strong></label>
+                        <div class="col">
+                            <input disabled type="text" th:field="*{profesion.descripcion}" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label for="correo" class="col col-form-label"><strong>Correo electrónico:</strong></label>
+                        <div class="col">
+                            <input type="email" disabled th:field="*{correo}" class="form-control" id="correo" placeholder="juan@gmail.com">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="mb-3 row form-group">
+
+                    <div class="col-sm-6">
+                        <label for="telefono" class="col col-form-label"><strong>Teléfono:</strong></label>
+                        <div class="col">
+                            <input type="text" th:field="*{telefono}" disabled class="form-control" id="telefono" placeholder="55885566">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label class="col col-form-label"><strong>Departamento:</strong></label>
+                        <div class="col">
+                            <input disabled type="text" th:field="*{departamento.descripcion}" class="form-control">
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+                <div class="mb-3 row form-group">
+
+                    <div class="col-sm-4">
+                        <label for="latitud" class="col col-form-label"><strong>Latitud:</strong></label>
+                        <div class="col">
+                            <input type="text" th:field="*{latitud}" disabled class="form-control" id="latitud">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="longitud" class="col col-form-label"><strong>Longitud:</strong></label>
+                        <div class="col">
+                            <input type="text" th:field="*{longitud}" disabled class="form-control" id="longitud">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="nacimiento" class="col col-form-label"><strong>Fecha de nacimiento:</strong></label>
+                        <div class="col">
+                            <input type="date" th:field="*{nacimiento}" disabled class="form-control" id="nacimiento" placeholder="11/03/1991">
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+
+
+</div>
+
+<footer th:replace="/plantillas/template :: footer"></footer>
+</body>
+</html>

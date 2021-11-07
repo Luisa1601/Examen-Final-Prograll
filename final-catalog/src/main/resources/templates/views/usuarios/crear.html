@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head th:replace="plantillas/template :: head">
+    <meta charset="UTF-8">
+    <title>Registrar usuario</title>
+</head>
+<body>
+<header th:replace="/plantillas/template :: header"></header>
+
+<div class="container" style="max-width: 60%">
+
+    <div class="card bg-light mt-3">
+
+        <div class="card-header bg-info text-dark text-center">
+            <h4 th:text="${titulo}"></h4>
+        </div>
+
+        <div class="card-body">
+            <form th:action="@{/views/usuarios/save}" th:object="${usuario}" method="post">
+                <div class="mb-3 row form-group">
+
+                    <div class="col-sm-6">
+                        <input type="hidden" th:field="*{id}">
+                        <label for="nombre" class="col col-form-label">Nombres</label>
+                        <div class="col">
+                            <input type="text" th:field="*{nombre}" class="form-control" id="nombre" placeholder="Fulano">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label for="apellido" class="col col-form-label">Apellidos</label>
+                        <div class="col">
+                            <input type="text" th:field="*{apellido}" class="form-control" id="apellido" placeholder="Mengano">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mb-3 row form-group">
+                    <div class="col-sm-6">
+                        <label for="profesion" class="col col-form-label">Profesión</label>
+                        <div class="col">
+                            <select th:field="*{profesion}" class="form-select form-control form-control-sm"  id="profesion">
+                                <option th:each="profesion:${profesiones}"
+                                        th:value="${profesion.id}"
+                                        th:text="${profesion.descripcion}"/>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label for="correo" class="col col-form-label">Correo electrónico</label>
+                        <div class="col">
+                            <input type="email" th:field="*{correo}" class="form-control" id="correo" placeholder="juan@gmail.com">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="mb-3 row form-group">
+
+                    <div class="col-sm-6">
+                        <label for="telefono" class="col col-form-label">Teléfono</label>
+                        <div class="col">
+                            <input type="text" th:field="*{telefono}" class="form-control" id="telefono" placeholder="55885566">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label for="departamento" class="col col-form-label">Departamento</label>
+                        <div class="col">
+                            <select th:field="*{departamento}" class="form-select form-control form-control-sm"  id="departamento">
+                                <option th:each="departamento:${departamentos}"
+                                        th:value="${departamento.id}"
+                                        th:text="${departamento.descripcion}"/>
+                            </select>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+                <div class="mb-3 row form-group">
+
+                    <div class="col-sm-4">
+                        <label for="latitud" class="col col-form-label">Latitud</label>
+                        <div class="col">
+                            <input type="text" th:field="*{latitud}" class="form-control" id="latitud">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="longitud" class="col col-form-label">Longitud</label>
+                        <div class="col">
+                            <input type="text" th:field="*{longitud}" class="form-control" id="longitud">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="nacimiento" class="col col-form-label">Fecha de nacimiento</label>
+                        <div class="col">
+                            <input type="date" th:field="*{nacimiento}" class="form-control" id="nacimiento" placeholder="11/03/1991">
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+
+
+                <div class="card-footer bg-info text-center">
+                    <input type="submit" class="btn btn-dark btn-sm" value="Guardar"/>
+                </div>
+
+            </form>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+<footer th:replace="/plantillas/template :: footer"></footer>
+</body>
+</html>

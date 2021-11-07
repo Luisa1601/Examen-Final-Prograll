@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head th:replace="plantillas/template :: head">
+    <meta charset="UTF-8">
+    <title>Profesiones</title>
+</head>
+<body>
+<header th:replace="/plantillas/template :: header"></header>
+
+<div class="container" style="max-width: 60%">
+
+    <div class="card bg-light mt-3">
+
+        <div class="card-header bg-info text-dark text-center">
+            <h4 th:text="${titulo}"></h4>
+        </div>
+
+        <div class="card-body">
+            <form th:action="@{/views/profesiones/save}" th:object="${profesion}" method="post">
+                <div class="mb-3 row form-group">
+                    <input type="hidden" th:field="*{id}">
+                    <label for="descripcion" class="col-sm-2 col-form-label">Descripción</label>
+                    <div class="col-sm-10">
+                        <input type="text" th:field="*{descripcion}" class="form-control" id="descripcion" placeholder="Agricultor">
+                    </div>
+                </div>
+
+
+                <div class="card-footer bg-info text-center">
+                    <input type="submit" class="btn btn-dark btn-sm" value="Guardar"/>
+                </div>
+
+            </form>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+<footer th:replace="/plantillas/template :: footer"></footer>
+</body>
+</html>
